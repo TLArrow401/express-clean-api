@@ -1,0 +1,27 @@
+# Resumen del Proyecto
+
+Este documento describe brevemente la función de cada carpeta y archivo principal del proyecto.
+
+## Estructura del proyecto
+
+```
+api-ts/
+├── src/                # Código fuente principal de la API
+│   ├── config/         # Ajustes de configuracion global, entorno, Db
+│   ├── controllers/    # Controladores de rutas y lógica de negocio
+│   ├── middlewares/    # Middlewares personalizados
+│   ├── models/         # Modelos de datos y esquemas
+│   ├── Repository/     # Repositorio de logica de consultas sql
+│   ├── routes/         # Definición de rutas de la API
+│   ├── Services/       # Servicios manejador de logica de negocio
+│   └── index.ts        # Punto de entrada principal de la aplicación
+├── tests/              # Pruebas unitarias y de integración
+├── package.json        # Dependencias y scripts del proyecto
+├── tsconfig.json       # Configuración de TypeScript
+├── .env                # Variables de entorno
+├── .gitignore          # Archivos y carpetas ignorados por git
+└── Readme              # Este archivo de documentación
+```
+
+## Descripción de carpetas y archivos
+

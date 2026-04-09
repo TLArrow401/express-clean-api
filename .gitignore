@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+.bun-build/
+bun.lockb
+
+# Variables de entorno 
+.env
+.env.local
+
+# Compilación y logs
+dist/
+build/
+*.log
+.DS_Store
