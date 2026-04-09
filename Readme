@@ -1,6 +1,6 @@
 🚀 ##Express Clean API (Node.js + TypeScript)
 Una implementación robusta de una API REST utilizando Arquitectura en Capas y patrones de diseño empresariales para garantizar escalabilidad y mantenibilidad.
--------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 🏗️ ##Arquitectura y Patrones
 Este proyecto va más allá del MVC clásico, implementando:
 
@@ -9,7 +9,7 @@ Este proyecto va más allá del MVC clásico, implementando:
     Dependency Injection: Mejora la testabilidad y el control de instancias.
     Singleton Pattern: Gestión eficiente de la conexión a la base de datos.
     Data Transfer Objects (DTOs): Estricto control de entrada y salida de datos (Request/Response mapping).
--------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 🛠️ ##Stack Tecnológico
 
     Runtime: Node.js
@@ -17,7 +17,7 @@ Este proyecto va más allá del MVC clásico, implementando:
     Framework: Express.js
     Security: JWT (JSON Web Tokens) & CORS configuration.
     Validation: Tipado fuerte con Interfaces y DTOs.
--------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------
 📂 ##Estructura del Proyecto
 ```
 api-ts/
