@@ -1,8 +1,24 @@
-# Resumen del Proyecto
+🚀 #Express Clean API (Node.js + TypeScript)
+Una implementación robusta de una API REST utilizando Arquitectura en Capas y patrones de diseño empresariales para garantizar escalabilidad y mantenibilidad.
+------------------------------------------------------------------------------------------------------------
+🏗️ #Arquitectura y Patrones
+Este proyecto va más allá del MVC clásico, implementando:
 
-Este documento describe brevemente la función de cada carpeta y archivo principal del proyecto.
+    Layered Architecture: Separación clara entre Rutas, Controladores, Servicios y Repositorios.
+    Repository Pattern: Desacoplamiento de la lógica de acceso a datos.
+    Dependency Injection: Mejora la testabilidad y el control de instancias.
+    Singleton Pattern: Gestión eficiente de la conexión a la base de datos.
+    Data Transfer Objects (DTOs): Estricto control de entrada y salida de datos (Request/Response mapping).
+------------------------------------------------------------------------------------------------------------
+🛠️ #Stack Tecnológico
 
-## Estructura del proyecto
+    Runtime: Node.js
+    Language: TypeScript (Strict Mode)
+    Framework: Express.js
+    Security: JWT (JSON Web Tokens) & CORS configuration.
+    Validation: Tipado fuerte con Interfaces y DTOs.
+------------------------------------------------------------------------------------------------------------
+📂 #Estructura del Proyecto
 
 ```
 api-ts/
@@ -22,6 +38,3 @@ api-ts/
 ├── .gitignore          # Archivos y carpetas ignorados por git
 └── Readme              # Este archivo de documentación
 ```
-
-## Descripción de carpetas y archivos
-
