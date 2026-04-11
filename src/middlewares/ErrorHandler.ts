@@ -1,4 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
+import { Env } from "../config/env.js";
 /**
  * Clase personalizada para errores extendida de la clase Error nativa de js
  */

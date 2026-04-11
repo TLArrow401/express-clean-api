@@ -29,7 +29,8 @@ api-ts/
 │   ├── Repository/     # Repositorio de logica de consultas sql
 │   ├── routes/         # Definición de rutas de la API
 │   ├── Services/       # Servicios manejador de logica de negocio
-│   └── index.ts        # Punto de entrada principal de la aplicación
+│   ├── app.ts          # archivo de manejo de cors, rutas, y middlewares
+│   └── server.ts       # Punto de entrada principal de la aplicación
 ├── tests/              # Pruebas unitarias y de integración
 ├── package.json        # Dependencias y scripts del proyecto
 ├── tsconfig.json       # Configuración de TypeScript
