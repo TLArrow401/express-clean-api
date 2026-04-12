@@ -3,8 +3,9 @@ import { z } from "zod";
 /**
  * Interfaz interna para representar el formato de llegada de los datos de la BD
  */
+/* Exporte de tipos en tiempo de ejecucion con zod */
 export const UserRowSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   username: z.string(),
   password: z.string().min(6).max(35),
   email: z.string().trim().toLowerCase().email().min(6).max(30),
@@ -27,7 +28,7 @@ export const UserUpdateSchema = UserCreateSchema.extend({
 
 // Tipo de como se envian los datos
 export const UserResponseSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   username: z.string(),
   email: z.string().trim().toLowerCase().email().min(6).max(30),
   status: z.enum(["active", "inactive", "blocked"]),
@@ -38,9 +39,11 @@ export const UserResponseSchema = z.object({
 /**
  * Exportaciones finales de tipos
  */
+/* Exporte de tipos en tiempo de compilacion */
 export type UserRow = z.infer<typeof UserRowSchema>;
 export type CreateUserDTO = z.infer<typeof UserCreateSchema>;
 export type UpdateUserDTO = z.infer<typeof UserUpdateSchema>;
+export type UserResponseDTO = z.infer<typeof UserResponseSchema>;
 
 //////////////////////////////
 //    Codigo anterior      //

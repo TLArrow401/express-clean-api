@@ -60,7 +60,7 @@ export default class UserRepository {
       //construccion dinamica segura
       const fields = entries.map(([column], index) => `${column}= $${index + 1}`);
       const values = entries.map(([_, value]) => value);
-      values.push(id); // Agregar el id al final de los valores para la consulta
+      values.push(id.toString()); // Agregar el id al final de los valores para la consulta
       //Ejecucion de la consulta query
       const rows = await this.db.query<UserModel.UserRow>(`UPDATE security.users SET ${fields.join(", ")} WHERE id = $${values.length} AND delete_at IS NULL RETURNING id, username, email, status, last_login_at, created_at`, values);
       // Desestructuracion para obtener primer registro existente
