@@ -1,7 +1,7 @@
 // Logica de negocio, Reglas, validaciones, y procesos.
 import argon2 from "argon2";
 import UserRepository from "../repository/user.repository.js";
-import { AppError } from "../middlewares/ErrorHandler.js";
+import { AppError } from "../middlewares/error-handler.middleware.js";
 import type { UpdateUserDTO, CreateUserDTO } from "../models/user.model.js";
 
 export default class UserService {

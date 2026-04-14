@@ -1,6 +1,6 @@
 // Intermedario entre la bd y el servicio.
 import Database from "../config/database.js";
-import { AppError } from "../middlewares/ErrorHandler.js";
+import { AppError } from "../middlewares/error-handler.middleware.js";
 import * as UserModel from "../models/user.model.js";
 
 

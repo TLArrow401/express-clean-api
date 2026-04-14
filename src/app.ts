@@ -1,7 +1,7 @@
 // Rutas, seguridad, middlewares
 import express, { type Request, type Response, type Application } from "express";
 import helmet from "helmet";
-import { errorHandler } from "./middlewares/ErrorHandler.js";
+import { errorHandler } from "./middlewares/error-handler.middleware.js";
 import cors from "cors";
 // Rutas
 import userRoutes from "./routes/user.routes.js";

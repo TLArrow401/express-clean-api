@@ -22,8 +22,7 @@ export default class UserController{
   getUserById = async (req: Request, res: Response, next: NextFunction)=>{
     try {
       const id = Number(req.params.id);
-      if (Number.isNaN(id)) return res.status(400).json({ message: "Invalid user ID" });
-
+      // if (Number.isNaN(id)) return res.status(400).json({ message: "Invalid user ID" });
       const user = await this.userService.getByIdUser(id);
       res.status(200).json({
         message: "User fetched successfully",
@@ -37,8 +36,8 @@ export default class UserController{
   // Metodo de creacion de usuario
   createUser = async (req: Request, res: Response, next: NextFunction)=>{
     try {
-      const userData: CreateUserDTO = req.body;
-      const newUser = await this.userService.createUser(userData);
+      const data: CreateUserDTO = req.body;
+      const newUser = await this.userService.createUser(data);
       res.status(201).json({
         message: "User created successfully",
         data: newUser
@@ -47,13 +46,14 @@ export default class UserController{
       next(error);
     }
   }
+
   // Metodo de actualizacion de usuario
   updateUser = async (req: Request, res: Response, next: NextFunction)=>{
     try {
       const id = Number(req.params.id);
-      const userData: UpdateUserDTO = req.body;
-      if (Number.isNaN(id)) return res.status(400).json({ message: "Invalid user ID" });
-      const updatedUser = await this.userService.updateUser(id, userData);
+      const data: UpdateUserDTO = req.body;
+
+      const updatedUser = await this.userService.updateUser(id, data);
       res.status(200).json({
         message: "User updated successfully",
         data: updatedUser
@@ -67,7 +67,6 @@ export default class UserController{
   deleteUser = async (req: Request, res: Response, next: NextFunction)=>{
     try {
       const id = Number(req.params.id);
-      if (Number.isNaN(id)) return res.status(400).json({ message: "Invalid user ID" });
       await this.userService.deleteUser(id);
       res.status(200).json({
         message: "User deleted successfully"

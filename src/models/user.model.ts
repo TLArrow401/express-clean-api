@@ -36,6 +36,11 @@ export const UserResponseSchema = z.object({
   createdAt: z.coerce.date(),
 });
 
+// Tipo para validacion de parametros de ruta
+export const IdParams = z.object({
+  id: z.coerce.number().int().positive(),
+})
+
 /**
  * Exportaciones finales de tipos
  */
