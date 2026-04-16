@@ -2,6 +2,7 @@
 import argon2 from "argon2";
 import UserRepository from "../repository/user.repository.js";
 import { AppError } from "../middlewares/error-handler.middleware.js";
+import { logger } from "../config/logger.js";
 import type { UpdateUserDTO, CreateUserDTO } from "../models/user.model.js";
 
 export default class UserService {
@@ -11,7 +12,7 @@ export default class UserService {
   async getAllUsers() {
     const users = await this.userRepo.getAll();
     if (users.length === 0) {
-      throw new AppError("No users found", 404);
+      throw new AppError("users not found", 404);
     }
     return users;
   }
