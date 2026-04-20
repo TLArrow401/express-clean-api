@@ -1,6 +1,10 @@
 import type { Request, Response, NextFunction } from "express";
 import { ZodError, z } from "zod";
 import { logger } from "../config/logger.js";
+import { Env } from "../config/env.js";
+
+const isDev = Env.NODE_ENV === "dev";
+
 /**
  * Clase personalizada para errores extendida de la clase Error nativa de js
  */
@@ -53,49 +57,39 @@ export const errorHandler = (
     return res.status(400).json({
       status: "fail",
       message: "Error en validacion de datos",
-      errors: formatted.fieldErrors,
+      ...(isDev ? { errors: formatted.fieldErrors } : {}),
     });
   }
 
   // Errores de validacion segun app
   if (err instanceof AppError) {
-    // Errores no operacionales
-    if (!err.isOperational) {
-      req.log.error(
-        {
-          type: "critical_error",
-          err,
-          details: err.details,
-        },
-        "Error critico no operacional",
-      );
-
-      return res.status(500).json({
-        status: "error",
-        message: "Internal critical server error",
-      });
-    }
-    // Errores operacionales
-    req.log.warn(
+    const logType = err.isOperational ? "warn" : "error";
+    req.log[logType](
       {
-        type: "operational_error",
+        type: err.isOperational ? "operational_error" : "critical_error",
         message: err.message,
-        details: err.details,
+        // Detalles solo en dev
+        details: isDev ? err.details : undefined,
       },
-      "Error operacional",
+      err.isOperational ? "Error operacional" : "Error critico",
     );
 
-    return res.status(err.statusCode).json({
+    return res.status(err.isOperational ? err.statusCode : 500).json({
       status: "error",
-      message: err.message,
-      ...(err.details ? { errors: err.details } : {}),
+      message: err.isOperational
+        ? err.message
+        : "Internal critical server error",
+      // Detalles solo en dev
+      ...(isDev && err.details ? { errors: err.details } : {}),
     });
   }
 
+  // Errores desconocidos
   req.log.error(
     {
       type: "unknown_error",
       err,
+      stack: isDev ? (err as Error).stack : undefined,
     },
     "Error no controlado",
   );

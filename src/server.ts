@@ -1,8 +1,8 @@
 // Punto de acceso y configuracion del servidor
-import { createApp } from "./app.js";
 import Database from "./config/database.js";
-import { Env } from "./config/env.js";
+import { createApp } from "./app.js";
 import {logger } from "./config/logger.js";
+import { Env } from "./config/env.js";
 
 const StartServer = async (): Promise<void> => {
   try {

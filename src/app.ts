@@ -5,7 +5,7 @@ import express, {
   type Application,
 } from "express";
 import { errorHandler } from "./middlewares/error-handler.middleware.js";
-import { logger, httpLogger } from "./config/logger.js";
+import { httpLogger } from "./config/logger.js";
 
 import helmet from "helmet";
 import cors from "cors";
